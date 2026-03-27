@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import MagneticButton from '@/components/ui/MagneticButton';
+import ParticleField from '@/components/ui/ParticleField';
 import styles from './Hero.module.scss';
 
 const lineReveal = {
@@ -41,6 +42,7 @@ export default function Hero() {
 
   return (
     <section className={styles.hero} id="hero">
+      <ParticleField />
       <div className={styles.container}>
         <div className={styles.left}>
           <motion.span

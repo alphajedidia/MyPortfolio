@@ -17,6 +17,8 @@
   align-items: center;
   justify-content: space-between;
   gap: $space-3xl;
+  position: relative;
+  z-index: 1;
 }
 
 // ─── Left content ───
