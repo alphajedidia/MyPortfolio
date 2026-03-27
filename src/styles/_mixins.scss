@@ -10,6 +10,8 @@
     @media (min-width: $bp-lg) { @content; }
   } @else if $bp == xl {
     @media (min-width: $bp-xl) { @content; }
+  } @else if $bp == 2xl {
+    @media (min-width: $bp-2xl) { @content; }
   }
 }
 
@@ -18,19 +20,23 @@
   width: 100%;
   max-width: $max-width;
   margin: 0 auto;
-  padding: 0 $space-lg;
+  padding: 0 $space-xl;
 
   @include respond-to(md) {
-    padding: 0 $space-2xl;
+    padding: 0 $space-3xl;
+  }
+
+  @include respond-to(xl) {
+    padding: 0 $space-4xl;
   }
 }
 
 // ─── Section ───
 @mixin section {
-  padding: $space-4xl 0;
+  padding: $space-5xl 0;
 
   @include respond-to(md) {
-    padding: $space-5xl 0;
+    padding: $space-6xl 0;
   }
 }
 
@@ -45,4 +51,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+// ─── Text clip ───
+@mixin text-gradient($from, $to) {
+  background: linear-gradient(135deg, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// ─── Glass effect ───
+@mixin glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
 }

@@ -3,8 +3,6 @@
 
 .education {
   @include section;
-  background: var(--color-bg-alt);
-  transition: background-color $transition-theme;
 }
 
 .container {
@@ -12,52 +10,72 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $space-xl;
-
-  @include respond-to(md) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  display: flex;
+  flex-direction: column;
 }
 
 .card {
-  padding: $space-xl;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: $radius-lg;
-  transition: all $transition-base;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: $space-xl;
+  padding: $space-2xl 0;
+  border-top: 1px solid var(--color-border);
+  transition: border-color $transition-theme;
+
+  @include respond-to(md) {
+    grid-template-columns: 100px 1fr;
+    gap: $space-3xl;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
 
   &:hover {
-    border-color: var(--color-accent);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px var(--color-shadow);
+    .index {
+      color: var(--color-accent);
+    }
   }
 }
 
+.index {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-dim);
+  letter-spacing: -0.03em;
+  transition: color 0.4s $ease-out-expo;
+  font-variant-numeric: tabular-nums;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
 .period {
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--color-accent);
-  margin-bottom: $space-sm;
+  letter-spacing: 0.05em;
 }
 
 .institution {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--color-text);
-  margin-bottom: $space-xs;
 }
 
 .degree {
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-text-secondary);
-  margin-bottom: $space-md;
 }
 
 .desc {
   font-size: 0.85rem;
   line-height: 1.6;
   color: var(--color-text-muted);
+  margin-top: $space-xs;
 }

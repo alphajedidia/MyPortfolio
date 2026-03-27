@@ -2,37 +2,42 @@
 $font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 $font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+$font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-// ─── Spacing ───
+// ─── Spacing (generous for premium feel) ───
 $space-xs: 0.25rem;
 $space-sm: 0.5rem;
 $space-md: 1rem;
 $space-lg: 1.5rem;
 $space-xl: 2rem;
 $space-2xl: 3rem;
-$space-3xl: 4rem;
-$space-4xl: 6rem;
-$space-5xl: 8rem;
+$space-3xl: 4.5rem;
+$space-4xl: 7rem;
+$space-5xl: 10rem;
+$space-6xl: 14rem;
 
 // ─── Layout ───
-$max-width: 1200px;
-$nav-height: 72px;
+$max-width: 1400px;
+$nav-height: 80px;
 
 // ─── Breakpoints ───
 $bp-sm: 480px;
 $bp-md: 768px;
 $bp-lg: 1024px;
 $bp-xl: 1280px;
+$bp-2xl: 1536px;
 
 // ─── Transitions ───
-$transition-fast: 0.2s ease;
-$transition-base: 0.3s ease;
-$transition-slow: 0.5s ease;
-$transition-theme: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-theme: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 
 // ─── Border Radius ───
 $radius-sm: 4px;
 $radius-md: 8px;
-$radius-lg: 12px;
-$radius-xl: 16px;
+$radius-lg: 16px;
+$radius-xl: 24px;
 $radius-full: 9999px;

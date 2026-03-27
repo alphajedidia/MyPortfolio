@@ -3,111 +3,194 @@
 
 .hero {
   min-height: 100vh;
-  @include flex-center;
-  padding-top: $nav-height;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: $space-5xl;
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
   @include container;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: $space-lg;
+  @include flex-between;
+  align-items: flex-end;
+  width: 100%;
 }
 
-.greeting {
-  font-size: 1rem;
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 800px;
+}
+
+.labelWrap {
+  margin-bottom: $space-xl;
+}
+
+.label {
+  font-size: 0.7rem;
   font-weight: 500;
-  color: var(--color-accent);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--color-accent);
+  }
 }
 
 .name {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--color-text);
+  margin-bottom: $space-xl;
+}
+
+.line {
+  display: block;
+  overflow: hidden;
+
+  > span {
+    display: block;
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+    color: var(--color-text);
+  }
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.titleWrap {
+  margin-bottom: $space-md;
 }
 
 .title {
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
   font-weight: 400;
   color: var(--color-text-secondary);
-  max-width: 600px;
-  line-height: 1.5;
+  letter-spacing: 0.01em;
 }
 
 .subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
-  max-width: 500px;
+  max-width: 450px;
+  line-height: 1.7;
+  margin-bottom: $space-2xl;
 }
 
 .actions {
   display: flex;
-  gap: $space-md;
-  margin-top: $space-lg;
+  gap: $space-lg;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .cta {
-  padding: 12px 28px;
-  background: var(--color-accent);
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: 14px 32px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
   border-radius: $radius-full;
-  transition: all $transition-base;
-  border: 2px solid var(--color-accent);
+  transition: all 0.4s $ease-out-expo;
+
+  svg {
+    transition: transform 0.4s $ease-out-expo;
+  }
 
   &:hover {
-    background: var(--color-accent-hover);
-    border-color: var(--color-accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(232, 168, 37, 0.3);
+    gap: $space-md;
+
+    svg {
+      transform: translate(3px, -3px);
+    }
   }
 }
 
 .secondary {
-  padding: 12px 28px;
-  background: transparent;
-  color: var(--color-text);
-  font-weight: 600;
-  font-size: 0.95rem;
-  border-radius: $radius-full;
-  border: 2px solid var(--color-border);
-  transition: all $transition-base;
+  display: inline-block;
+  padding: 14px 32px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  position: relative;
+  transition: color $transition-fast;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: 32px;
+    right: 32px;
+    height: 1px;
+    background: var(--color-text-muted);
+    transition: background $transition-fast;
+  }
 
   &:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-    transform: translateY(-2px);
+    color: var(--color-text);
+
+    &::after {
+      background: var(--color-text);
+    }
   }
 }
 
-.scrollIndicator {
-  position: absolute;
-  bottom: $space-2xl;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
+// Scroll hint
+.scrollHint {
+  display: none;
   flex-direction: column;
   align-items: center;
-  gap: $space-sm;
+  gap: $space-md;
+
+  @include respond-to(md) {
+    display: flex;
+  }
+}
+
+.scrollText {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: var(--color-text-muted);
-  font-size: 0.75rem;
-  animation: bounce 2s infinite;
+  writing-mode: vertical-rl;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
-}
-
-.line {
+.scrollLine {
+  display: block;
   width: 1px;
-  height: 40px;
-  background: var(--color-border);
+  height: 60px;
+  background: var(--color-accent);
+  transform-origin: top;
+}
+
+// Background decorative number
+.bgNumber {
+  position: absolute;
+  right: -2%;
+  bottom: -5%;
+  font-size: clamp(10rem, 25vw, 20rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--color-text);
+  opacity: 0.02;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
 }

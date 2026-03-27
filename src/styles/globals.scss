@@ -3,43 +3,57 @@
 // ─── CSS Custom Properties (Theme) ───
 :root,
 [data-theme='light'] {
-  --color-bg: #fafafa;
-  --color-bg-alt: #ffffff;
+  --color-bg: #f8f7f4;
+  --color-bg-alt: #f0eeea;
   --color-bg-card: #ffffff;
+  --color-bg-elevated: #ffffff;
   --color-text: #1a1a1a;
-  --color-text-secondary: #666666;
+  --color-text-secondary: #555555;
   --color-text-muted: #999999;
-  --color-accent: #e8a825;
-  --color-accent-hover: #d49a1f;
-  --color-accent-light: rgba(232, 168, 37, 0.1);
-  --color-border: #eaeaea;
-  --color-border-hover: #d0d0d0;
-  --color-shadow: rgba(0, 0, 0, 0.06);
-  --color-shadow-hover: rgba(0, 0, 0, 0.12);
-  --color-nav-bg: rgba(250, 250, 250, 0.85);
-  --color-tag-bg: #f3f3f3;
-  --color-tag-text: #555555;
-  --color-code-bg: #f5f5f5;
+  --color-text-dim: #c0c0c0;
+  --color-accent: #c8a852;
+  --color-accent-hover: #b8962f;
+  --color-accent-light: rgba(200, 168, 82, 0.08);
+  --color-accent-glow: rgba(200, 168, 82, 0.15);
+  --color-border: rgba(0, 0, 0, 0.06);
+  --color-border-hover: rgba(0, 0, 0, 0.12);
+  --color-shadow: rgba(0, 0, 0, 0.04);
+  --color-shadow-lg: rgba(0, 0, 0, 0.08);
+  --color-glass: rgba(248, 247, 244, 0.75);
+  --color-nav-bg: rgba(248, 247, 244, 0.8);
+  --color-tag-bg: rgba(0, 0, 0, 0.04);
+  --color-tag-text: #666666;
+  --color-cursor: #1a1a1a;
+  --color-loader-bg: #1a1a1a;
+  --color-loader-text: #f8f7f4;
+  --noise-opacity: 0.03;
 }
 
 [data-theme='dark'] {
-  --color-bg: #0a0a0a;
+  --color-bg: #0c0c0c;
   --color-bg-alt: #111111;
-  --color-bg-card: #161616;
-  --color-text: #ededed;
+  --color-bg-card: #181818;
+  --color-bg-elevated: #1e1e1e;
+  --color-text: #f0eeea;
   --color-text-secondary: #a0a0a0;
-  --color-text-muted: #666666;
-  --color-accent: #e8a825;
-  --color-accent-hover: #f0b840;
-  --color-accent-light: rgba(232, 168, 37, 0.12);
-  --color-border: #262626;
-  --color-border-hover: #333333;
+  --color-text-muted: #606060;
+  --color-text-dim: #3a3a3a;
+  --color-accent: #c8a852;
+  --color-accent-hover: #dabe6a;
+  --color-accent-light: rgba(200, 168, 82, 0.1);
+  --color-accent-glow: rgba(200, 168, 82, 0.08);
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(255, 255, 255, 0.12);
   --color-shadow: rgba(0, 0, 0, 0.3);
-  --color-shadow-hover: rgba(0, 0, 0, 0.5);
-  --color-nav-bg: rgba(10, 10, 10, 0.85);
-  --color-tag-bg: #1e1e1e;
-  --color-tag-text: #b0b0b0;
-  --color-code-bg: #1a1a1a;
+  --color-shadow-lg: rgba(0, 0, 0, 0.5);
+  --color-glass: rgba(12, 12, 12, 0.75);
+  --color-nav-bg: rgba(12, 12, 12, 0.8);
+  --color-tag-bg: rgba(255, 255, 255, 0.05);
+  --color-tag-text: #888888;
+  --color-cursor: #f0eeea;
+  --color-loader-bg: #f0eeea;
+  --color-loader-text: #0c0c0c;
+  --noise-opacity: 0.025;
 }
 
 // ─── Reset ───
@@ -52,9 +66,10 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
 body {
@@ -63,11 +78,34 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   transition: background-color $transition-theme, color $transition-theme;
+  overflow-x: hidden;
+  cursor: none;
+
+  @media (max-width: $bp-lg) {
+    cursor: auto;
+  }
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  cursor: none;
+
+  @media (max-width: $bp-lg) {
+    cursor: pointer;
+  }
+}
+
+button {
+  cursor: none;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+
+  @media (max-width: $bp-lg) {
+    cursor: pointer;
+  }
 }
 
 ul, ol {
@@ -80,52 +118,109 @@ img {
   display: block;
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font: inherit;
-  color: inherit;
-}
-
 // ─── Selection ───
 ::selection {
   background-color: var(--color-accent);
   color: #fff;
 }
 
-// ─── Scrollbar ───
+// ─── Scrollbar (thin, minimal) ───
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: var(--color-text-dim);
   border-radius: $radius-full;
-
-  &:hover {
-    background: var(--color-text-muted);
-  }
 }
 
 // ─── Section heading ───
-.section-heading {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: $space-sm;
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: $space-lg;
+  display: flex;
+  align-items: center;
+  gap: $space-md;
 
-  @media (min-width: $bp-md) {
-    font-size: 2.5rem;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--color-accent);
   }
+}
+
+.section-heading {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: $space-md;
 }
 
 .section-subtitle {
   color: var(--color-text-secondary);
   font-size: 1.05rem;
-  margin-bottom: $space-3xl;
+  line-height: 1.7;
+  max-width: 500px;
+  margin-bottom: $space-4xl;
+}
+
+// ─── Noise overlay ───
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+}
+
+// ─── Page loader ───
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--color-loader-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.loaderText {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-loader-text);
+}
+
+.loaderBar {
+  width: 60px;
+  height: 2px;
+  background: rgba(128, 128, 128, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loaderFill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 2px;
 }

@@ -3,43 +3,46 @@
 
 .projects {
   @include section;
+  background: var(--color-bg-alt);
+  transition: background-color $transition-theme;
 }
 
 .container {
   @include container;
 }
 
+.header {
+  margin-bottom: $space-xl;
+}
+
 .filters {
   display: flex;
   gap: $space-sm;
   flex-wrap: wrap;
-  margin-bottom: $space-2xl;
+  margin-bottom: $space-3xl;
 }
 
 .filterBtn {
-  padding: 8px 18px;
-  font-size: 0.85rem;
+  padding: 8px 20px;
+  font-size: 0.78rem;
   font-weight: 500;
   border-radius: $radius-full;
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
   transition: all $transition-base;
   background: transparent;
+  letter-spacing: 0.02em;
 
   &:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    color: var(--color-text);
   }
 }
 
 .filterBtnActive {
-  background: var(--color-accent);
-  color: #fff;
-  border-color: var(--color-accent);
+  background: var(--color-text);
+  color: var(--color-bg);
 
   &:hover {
-    color: #fff;
-    background: var(--color-accent-hover);
+    color: var(--color-bg);
   }
 }
 
@@ -48,12 +51,13 @@
   grid-template-columns: 1fr;
   gap: $space-xl;
 
-  @include respond-to(sm) {
+  @include respond-to(md) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include respond-to(lg) {
-    grid-template-columns: repeat(3, 1fr);
+  @include respond-to(xl) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-2xl;
   }
 }
 
@@ -62,64 +66,92 @@
   border: 1px solid var(--color-border);
   border-radius: $radius-lg;
   overflow: hidden;
-  transition: all $transition-base;
+  transition: all 0.5s $ease-out-expo;
 
   &:hover {
     border-color: var(--color-border-hover);
-    box-shadow: 0 8px 30px var(--color-shadow);
-    transform: translateY(-4px);
+    box-shadow: 0 20px 60px var(--color-shadow-lg);
+    transform: translateY(-6px);
 
-    .imageOverlay {
+    .cardOverlay {
       opacity: 1;
     }
 
-    .image img {
-      transform: scale(1.05);
+    .cardImageInner {
+      transform: scale(1.03);
     }
   }
 }
 
-.image {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  background: var(--color-tag-bg);
+.featured {
+  @include respond-to(md) {
+    grid-column: span 2;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform $transition-slow;
+    .cardImage {
+      height: 320px;
+    }
   }
 }
 
-.imagePlaceholder {
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    var(--color-bg-alt) 0%,
+    var(--color-tag-bg) 100%
+  );
+}
+
+.cardImageInner {
   @include flex-center;
+  flex-direction: column;
+  gap: $space-sm;
   width: 100%;
   height: 100%;
-  font-size: 2.5rem;
-  color: var(--color-text-muted);
-  background: linear-gradient(135deg, var(--color-tag-bg) 0%, var(--color-border) 100%);
+  transition: transform 0.7s $ease-out-expo;
 }
 
-.imageOverlay {
+.cardCategory {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-text-dim);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cardCategoryLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.cardOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   @include flex-center;
-  gap: $space-sm;
+  gap: $space-md;
   opacity: 0;
-  transition: opacity $transition-base;
+  transition: opacity 0.4s $ease-out-expo;
+  backdrop-filter: blur(4px);
 }
 
-.overlayLink {
-  padding: 8px 16px;
+.cardLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
   background: #fff;
   color: #1a1a1a;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   border-radius: $radius-full;
+  letter-spacing: 0.02em;
   transition: all $transition-fast;
 
   &:hover {
@@ -128,45 +160,42 @@
   }
 }
 
-.body {
-  padding: $space-lg;
+.cardBody {
+  padding: $space-xl $space-xl $space-xl;
+}
+
+.cardMeta {
+  @include flex-between;
+  margin-bottom: $space-sm;
 }
 
 .cardTitle {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: $space-sm;
+  letter-spacing: -0.02em;
   color: var(--color-text);
 }
 
 .cardDesc {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--color-text-secondary);
-  line-height: 1.6;
-  margin-bottom: $space-md;
+  line-height: 1.7;
+  margin-bottom: $space-lg;
 }
 
-.tags {
+.cardTags {
   display: flex;
   flex-wrap: wrap;
-  gap: $space-xs;
+  gap: 6px;
 }
 
 .tag {
-  padding: 4px 10px;
-  font-size: 0.75rem;
+  padding: 4px 12px;
+  font-size: 0.72rem;
   font-weight: 500;
   background: var(--color-tag-bg);
   color: var(--color-tag-text);
   border-radius: $radius-full;
+  letter-spacing: 0.02em;
   transition: background-color $transition-theme, color $transition-theme;
-}
-
-.featured {
-  border-color: var(--color-accent);
-
-  .tag:first-child {
-    background: var(--color-accent-light);
-    color: var(--color-accent);
-  }
 }
