@@ -8,6 +8,7 @@ export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [label, setLabel] = useState('');
+  const [isMobile, setIsMobile] = useState(true);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   const springConfig = { damping: 30, stiffness: 400, mass: 0.5 };
@@ -16,6 +17,11 @@ export default function CustomCursor() {
   const mounted = useRef(false);
 
   useEffect(() => {
+    setIsMobile(window.matchMedia('(max-width: 1024px)').matches);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
     mounted.current = true;
 
     const moveCursor = (e: MouseEvent) => {
@@ -57,12 +63,9 @@ export default function CustomCursor() {
       document.removeEventListener('mouseleave', handleLeave);
       document.removeEventListener('mouseenter', handleEnter);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isMobile]);
 
-  // Hide on touch devices
-  if (typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches) {
-    return null;
-  }
+  if (isMobile) return null;
 
   return (
     <>
