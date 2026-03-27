@@ -4,51 +4,33 @@
 .hero {
   min-height: 100vh;
   display: flex;
-  align-items: flex-end;
-  padding-bottom: $space-5xl;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
+  padding-top: $nav-height;
 }
 
 .container {
   @include container;
-  @include flex-between;
-  align-items: flex-end;
-  width: 100%;
-}
-
-.content {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  max-width: 800px;
+  align-items: flex-start;
 }
 
-.labelWrap {
-  margin-bottom: $space-xl;
-}
-
+// ─── Label ───
 .label {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-accent);
-  display: flex;
-  align-items: center;
-  gap: $space-md;
-
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 40px;
-    height: 1px;
-    background: var(--color-accent);
-  }
+  color: var(--color-text-muted);
+  margin-bottom: $space-2xl;
 }
 
+// ─── Name ───
 .name {
-  margin-bottom: $space-xl;
+  margin-bottom: $space-2xl;
 }
 
 .line {
@@ -57,10 +39,10 @@
 
   > span {
     display: block;
-    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
     font-weight: 800;
-    letter-spacing: -0.05em;
-    line-height: 0.95;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
     color: var(--color-text);
   }
 }
@@ -69,25 +51,24 @@
   color: var(--color-accent);
 }
 
-.titleWrap {
-  margin-bottom: $space-md;
-}
-
+// ─── Title & Subtitle ───
 .title {
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
   font-weight: 400;
   color: var(--color-text-secondary);
   letter-spacing: 0.01em;
+  margin-bottom: $space-md;
 }
 
 .subtitle {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--color-text-muted);
-  max-width: 450px;
+  max-width: 420px;
   line-height: 1.7;
   margin-bottom: $space-2xl;
 }
 
+// ─── CTA Buttons ───
 .actions {
   display: flex;
   gap: $space-lg;
@@ -99,11 +80,11 @@
   display: flex;
   align-items: center;
   gap: $space-sm;
-  padding: 14px 32px;
+  padding: 13px 28px;
   background: var(--color-text);
   color: var(--color-bg);
   font-weight: 500;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   letter-spacing: 0.02em;
   border-radius: $radius-full;
   transition: all 0.4s $ease-out-expo;
@@ -123,9 +104,9 @@
 
 .secondary {
   display: inline-block;
-  padding: 14px 32px;
+  padding: 13px 28px;
   font-weight: 500;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   letter-spacing: 0.02em;
   color: var(--color-text-muted);
   position: relative;
@@ -134,9 +115,9 @@
   &::after {
     content: '';
     position: absolute;
-    bottom: 12px;
-    left: 32px;
-    right: 32px;
+    bottom: 11px;
+    left: 28px;
+    right: 28px;
     height: 1px;
     background: var(--color-text-muted);
     transition: background $transition-fast;
@@ -151,46 +132,23 @@
   }
 }
 
-// Scroll hint
+// ─── Scroll indicator ───
 .scrollHint {
+  position: absolute;
+  bottom: $space-3xl;
+  left: 50%;
+  transform: translateX(-50%);
   display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: $space-md;
 
   @include respond-to(md) {
-    display: flex;
+    display: block;
   }
-}
-
-.scrollText {
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  writing-mode: vertical-rl;
 }
 
 .scrollLine {
   display: block;
   width: 1px;
-  height: 60px;
+  height: 48px;
   background: var(--color-accent);
   transform-origin: top;
-}
-
-// Background decorative number
-.bgNumber {
-  position: absolute;
-  right: -2%;
-  bottom: -5%;
-  font-size: clamp(10rem, 25vw, 20rem);
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  color: var(--color-text);
-  opacity: 0.02;
-  pointer-events: none;
-  user-select: none;
-  line-height: 1;
 }
