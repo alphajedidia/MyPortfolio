@@ -1,16 +1,19 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useMemo } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { projects, categories, type ProjectCategory } from '@/data/projects';
 import styles from './Projects.module.scss';
 
+const PAGE_SIZE = 5;
+
 export default function Projects() {
   const t = useTranslations('projects');
   const { ref: headerRef, isVisible } = useScrollReveal();
   const [activeFilter, setActiveFilter] = useState<ProjectCategory | 'all'>('all');
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -18,19 +21,44 @@ export default function Projects() {
     offset: ['start start', 'end end'],
   });
 
-  const filtered = activeFilter === 'all'
-    ? projects
-    : projects.filter((p) => p.category === activeFilter);
+  const filtered = useMemo(
+    () => activeFilter === 'all'
+      ? projects
+      : projects.filter((p) => p.category === activeFilter),
+    [activeFilter]
+  );
 
-  // Horizontal scroll: translate X based on scroll progress
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
+
+  // +1 for the end card when there are more to show
+  const totalCards = visible.length + (hasMore ? 1 : 0);
+
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    ['0%', `-${Math.max(0, (filtered.length + 1) * 25 - 100)}%`]
+    ['0%', `-${Math.max(0, totalCards * 25 - 100)}%`]
   );
 
+  // Dynamic section height: more cards = taller section = longer scroll
+  const sectionHeight = `${Math.max(250, totalCards * 55)}vh`;
+
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + PAGE_SIZE);
+  };
+
+  const handleFilterChange = (key: ProjectCategory | 'all') => {
+    setActiveFilter(key);
+    setVisibleCount(PAGE_SIZE);
+  };
+
   return (
-    <section className={styles.projects} id="projects" ref={sectionRef}>
+    <section
+      className={styles.projects}
+      id="projects"
+      ref={sectionRef}
+      style={{ height: sectionHeight }}
+    >
       <div className={styles.sticky}>
         <div className={styles.header} ref={headerRef}>
           <div className={styles.headerLeft}>
@@ -62,7 +90,7 @@ export default function Projects() {
               <button
                 key={cat.key}
                 className={`${styles.filterBtn} ${activeFilter === cat.key ? styles.filterBtnActive : ''}`}
-                onClick={() => setActiveFilter(cat.key)}
+                onClick={() => handleFilterChange(cat.key)}
               >
                 {t(cat.key)}
               </button>
@@ -73,7 +101,7 @@ export default function Projects() {
         <div className={styles.trackWrapper}>
           <motion.div className={styles.track} style={{ x }}>
             <AnimatePresence mode="popLayout">
-              {filtered.map((project, i) => (
+              {visible.map((project, i) => (
                 <motion.article
                   key={project.id}
                   className={styles.card}
@@ -128,15 +156,29 @@ export default function Projects() {
               ))}
             </AnimatePresence>
 
-            {/* View More end card */}
-            <div className={styles.endCard} data-cursor="Scroll">
-              <span className={styles.endIndex}>{String(filtered.length + 1).padStart(2, '0')}</span>
-              <p className={styles.endText}>Keep scrolling to explore more</p>
-              <svg className={styles.endArrow} width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <polyline points="19 12 12 19 5 12" />
-              </svg>
-            </div>
+            {/* Show More end card */}
+            {hasMore && (
+              <motion.div
+                className={styles.endCard}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+              >
+                <span className={styles.endCount}>
+                  +{filtered.length - visibleCount}
+                </span>
+                <p className={styles.endText}>
+                  more {activeFilter === 'all' ? 'projects' : activeFilter} to explore
+                </p>
+                <button className={styles.showMoreBtn} onClick={handleShowMore} data-cursor="Load">
+                  <span>Show more</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </button>
+              </motion.div>
+            )}
           </motion.div>
         </div>
 
@@ -146,7 +188,7 @@ export default function Projects() {
             <motion.div className={styles.progressFill} style={{ scaleX: scrollYProgress }} />
           </div>
           <span className={styles.progressLabel}>
-            {filtered.length} projects
+            {visible.length} / {filtered.length}
           </span>
         </div>
       </div>

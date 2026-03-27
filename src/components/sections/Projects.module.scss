@@ -1,9 +1,8 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-// The section is tall to give room for scroll-driven horizontal movement
+// Height is set dynamically via inline style based on visible card count
 .projects {
-  height: 300vh;
   position: relative;
   background: var(--color-bg-alt);
   transition: background-color $transition-theme;
@@ -235,46 +234,60 @@
 // ─── End card ───
 .endCard {
   flex-shrink: 0;
-  width: 280px;
+  width: 240px;
   @include flex-center;
   flex-direction: column;
-  gap: $space-xl;
-  padding: $space-3xl;
+  gap: $space-lg;
+  padding: $space-2xl $space-xl;
   border: 1px dashed var(--color-border);
   border-radius: $radius-lg;
   transition: border-color $transition-base;
+  align-self: stretch;
 
   @include respond-to(md) {
-    width: 320px;
-  }
-
-  &:hover {
-    border-color: var(--color-accent);
-
-    .endArrow {
-      transform: translateY(4px);
-      color: var(--color-accent);
-    }
+    width: 260px;
   }
 }
 
-.endIndex {
-  font-size: 1.2rem;
+.endCount {
+  font-size: 2rem;
   font-weight: 800;
   color: var(--color-text-dim);
-  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
 .endText {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--color-text-muted);
   text-align: center;
   line-height: 1.5;
 }
 
-.endArrow {
-  color: var(--color-text-muted);
+.showMoreBtn {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: 10px 22px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-bg);
+  background: var(--color-text);
+  border-radius: $radius-full;
   transition: all 0.4s $ease-out-expo;
+
+  svg {
+    transition: transform 0.4s $ease-out-expo;
+  }
+
+  &:hover {
+    background: var(--color-accent);
+
+    svg {
+      transform: rotate(90deg);
+    }
+  }
 }
 
 // ─── Progress bar ───
