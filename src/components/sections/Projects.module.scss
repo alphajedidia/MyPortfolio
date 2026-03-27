@@ -1,0 +1,172 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.projects {
+  @include section;
+}
+
+.container {
+  @include container;
+}
+
+.filters {
+  display: flex;
+  gap: $space-sm;
+  flex-wrap: wrap;
+  margin-bottom: $space-2xl;
+}
+
+.filterBtn {
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: $radius-full;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  transition: all $transition-base;
+  background: transparent;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+}
+
+.filterBtnActive {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+
+  &:hover {
+    color: #fff;
+    background: var(--color-accent-hover);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-xl;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: 0 8px 30px var(--color-shadow);
+    transform: translateY(-4px);
+
+    .imageOverlay {
+      opacity: 1;
+    }
+
+    .image img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--color-tag-bg);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+  }
+}
+
+.imagePlaceholder {
+  @include flex-center;
+  width: 100%;
+  height: 100%;
+  font-size: 2.5rem;
+  color: var(--color-text-muted);
+  background: linear-gradient(135deg, var(--color-tag-bg) 0%, var(--color-border) 100%);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  @include flex-center;
+  gap: $space-sm;
+  opacity: 0;
+  transition: opacity $transition-base;
+}
+
+.overlayLink {
+  padding: 8px 16px;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: $radius-full;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: var(--color-accent);
+    color: #fff;
+  }
+}
+
+.body {
+  padding: $space-lg;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: $space-sm;
+  color: var(--color-text);
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: $space-md;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs;
+}
+
+.tag {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  border-radius: $radius-full;
+  transition: background-color $transition-theme, color $transition-theme;
+}
+
+.featured {
+  border-color: var(--color-accent);
+
+  .tag:first-child {
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+  }
+}

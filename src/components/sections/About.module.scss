@@ -1,0 +1,27 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.about {
+  @include section;
+  background: var(--color-bg-alt);
+  transition: background-color $transition-theme;
+}
+
+.container {
+  @include container;
+}
+
+.content {
+  max-width: 700px;
+}
+
+.text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: $space-lg;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
