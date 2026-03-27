@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useMemo } from 'react';
+import { useRef, useState, useMemo, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -31,17 +31,31 @@ export default function Projects() {
   const visible = filtered.slice(0, visibleCount);
   const hasMore = visibleCount < filtered.length;
 
-  // +1 for the end card when there are more to show
+  const trackRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [scrollRange, setScrollRange] = useState(0);
+
+  // Measure how far the track needs to scroll
+  useEffect(() => {
+    const measure = () => {
+      if (trackRef.current && wrapperRef.current) {
+        const trackW = trackRef.current.scrollWidth;
+        const viewW = wrapperRef.current.offsetWidth;
+        setScrollRange(Math.max(0, trackW - viewW));
+      }
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, [visible.length, hasMore]);
+
+  const x = useTransform(scrollYProgress, [0, 1], [0, -scrollRange]);
+
+  // Section height: just enough to scroll all cards into view
+  // ~100vh base + 50vh per card that needs to scroll in
   const totalCards = visible.length + (hasMore ? 1 : 0);
-
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ['0%', `-${Math.max(0, totalCards * 25 - 100)}%`]
-  );
-
-  // Dynamic section height: more cards = taller section = longer scroll
-  const sectionHeight = `${Math.max(250, totalCards * 55)}vh`;
+  const extraCards = Math.max(0, totalCards - 2); // first ~2 cards visible without scrolling
+  const sectionHeight = `${100 + extraCards * 40}vh`;
 
   const handleShowMore = () => {
     setVisibleCount((prev) => prev + PAGE_SIZE);
@@ -98,8 +112,8 @@ export default function Projects() {
           </motion.div>
         </div>
 
-        <div className={styles.trackWrapper}>
-          <motion.div className={styles.track} style={{ x }}>
+        <div className={styles.trackWrapper} ref={wrapperRef}>
+          <motion.div className={styles.track} style={{ x }} ref={trackRef}>
             <AnimatePresence mode="popLayout">
               {visible.map((project, i) => (
                 <motion.article
