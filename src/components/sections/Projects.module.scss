@@ -1,30 +1,48 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+// The section is tall to give room for scroll-driven horizontal movement
 .projects {
-  @include section;
+  height: 300vh;
+  position: relative;
   background: var(--color-bg-alt);
   transition: background-color $transition-theme;
 }
 
-.container {
-  @include container;
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
+// ─── Header ───
 .header {
-  margin-bottom: $space-xl;
+  @include container;
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $space-lg;
+  padding-top: $space-3xl;
+  padding-bottom: $space-xl;
+  flex-shrink: 0;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
 }
 
 .filters {
   display: flex;
-  gap: $space-sm;
+  gap: $space-xs;
   flex-wrap: wrap;
-  margin-bottom: $space-3xl;
 }
 
 .filterBtn {
-  padding: 8px 20px;
-  font-size: 0.78rem;
+  padding: 7px 16px;
+  font-size: 0.75rem;
   font-weight: 500;
   border-radius: $radius-full;
   color: var(--color-text-muted);
@@ -46,27 +64,47 @@
   }
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
+// ─── Horizontal track ───
+.trackWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
   gap: $space-xl;
+  padding: 0 $space-xl;
+  will-change: transform;
 
   @include respond-to(md) {
-    grid-template-columns: repeat(2, 1fr);
+    gap: $space-2xl;
+    padding: 0 $space-3xl;
   }
 
   @include respond-to(xl) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: $space-2xl;
+    padding: 0 $space-4xl;
   }
 }
 
+// ─── Card ───
 .card {
+  flex-shrink: 0;
+  width: 320px;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: $radius-lg;
   overflow: hidden;
   transition: all 0.5s $ease-out-expo;
+
+  @include respond-to(md) {
+    width: 380px;
+  }
+
+  @include respond-to(xl) {
+    width: 420px;
+  }
 
   &:hover {
     border-color: var(--color-border-hover);
@@ -83,26 +121,20 @@
   }
 }
 
-.featured {
-  @include respond-to(md) {
-    grid-column: span 2;
-
-    .cardImage {
-      height: 320px;
-    }
-  }
-}
-
 .cardImage {
   position: relative;
   width: 100%;
-  height: 240px;
+  height: 200px;
   overflow: hidden;
   background: linear-gradient(
     145deg,
     var(--color-bg-alt) 0%,
     var(--color-tag-bg) 100%
   );
+
+  @include respond-to(md) {
+    height: 220px;
+  }
 }
 
 .cardImageInner {
@@ -114,8 +146,8 @@
   transition: transform 0.7s $ease-out-expo;
 }
 
-.cardCategory {
-  font-size: 2.5rem;
+.cardIndex {
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--color-text-dim);
   letter-spacing: -0.03em;
@@ -123,7 +155,7 @@
 }
 
 .cardCategoryLabel {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -145,10 +177,10 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 20px;
+  padding: 9px 18px;
   background: #fff;
   color: #1a1a1a;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 600;
   border-radius: $radius-full;
   letter-spacing: 0.02em;
@@ -161,41 +193,118 @@
 }
 
 .cardBody {
-  padding: $space-xl $space-xl $space-xl;
-}
-
-.cardMeta {
-  @include flex-between;
-  margin-bottom: $space-sm;
+  padding: $space-lg;
 }
 
 .cardTitle {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--color-text);
+  margin-bottom: $space-sm;
 }
 
 .cardDesc {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   color: var(--color-text-secondary);
   line-height: 1.7;
-  margin-bottom: $space-lg;
+  margin-bottom: $space-md;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .cardTags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
 }
 
 .tag {
-  padding: 4px 12px;
-  font-size: 0.72rem;
+  padding: 3px 10px;
+  font-size: 0.7rem;
   font-weight: 500;
   background: var(--color-tag-bg);
   color: var(--color-tag-text);
   border-radius: $radius-full;
   letter-spacing: 0.02em;
   transition: background-color $transition-theme, color $transition-theme;
+}
+
+// ─── End card ───
+.endCard {
+  flex-shrink: 0;
+  width: 280px;
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-xl;
+  padding: $space-3xl;
+  border: 1px dashed var(--color-border);
+  border-radius: $radius-lg;
+  transition: border-color $transition-base;
+
+  @include respond-to(md) {
+    width: 320px;
+  }
+
+  &:hover {
+    border-color: var(--color-accent);
+
+    .endArrow {
+      transform: translateY(4px);
+      color: var(--color-accent);
+    }
+  }
+}
+
+.endIndex {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.endText {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.endArrow {
+  color: var(--color-text-muted);
+  transition: all 0.4s $ease-out-expo;
+}
+
+// ─── Progress bar ───
+.progressWrap {
+  @include container;
+  @include flex-between;
+  padding-top: $space-lg;
+  padding-bottom: $space-2xl;
+  flex-shrink: 0;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 2px;
+  background: var(--color-tag-bg);
+  border-radius: 1px;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--color-accent);
+  transform-origin: left;
+}
+
+.progressLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  margin-left: $space-md;
 }
