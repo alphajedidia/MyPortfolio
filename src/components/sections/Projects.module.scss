@@ -73,37 +73,21 @@
 
 .track {
   display: flex;
-  gap: $space-xl;
-  padding: 0 $space-xl;
+  gap: 32px; // must match CARD_GAP constant in TSX
+  padding: 0 40px;
   will-change: transform;
-
-  @include respond-to(md) {
-    gap: $space-2xl;
-    padding: 0 $space-3xl;
-  }
-
-  @include respond-to(xl) {
-    padding: 0 $space-4xl;
-  }
 }
 
 // ─── Card ───
 .card {
   flex-shrink: 0;
-  width: 320px;
+  width: 440px; // must match CARD_WIDTH constant in TSX
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: $radius-lg;
   overflow: hidden;
-  transition: all 0.5s $ease-out-expo;
-
-  @include respond-to(md) {
-    width: 380px;
-  }
-
-  @include respond-to(xl) {
-    width: 420px;
-  }
+  transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+  transition-timing-function: $ease-out-expo;
 
   &:hover {
     border-color: var(--color-border-hover);
@@ -234,7 +218,7 @@
 // ─── End card ───
 .endCard {
   flex-shrink: 0;
-  width: 240px;
+  width: 260px; // must match END_CARD_WIDTH constant in TSX
   @include flex-center;
   flex-direction: column;
   gap: $space-lg;
@@ -243,10 +227,6 @@
   border-radius: $radius-lg;
   transition: border-color $transition-base;
   align-self: stretch;
-
-  @include respond-to(md) {
-    width: 260px;
-  }
 }
 
 .endCount {
