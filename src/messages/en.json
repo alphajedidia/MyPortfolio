@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Alpha Jedidia R.",
+    "title": "UX / UI Designer & Software Engineer",
+    "subtitle": "I design and build digital solutions that are useful, simple, and user-centered.",
+    "cta": "View my work",
+    "resume": "Download CV"
+  },
+  "about": {
+    "heading": "About me",
+    "p1": "Software Engineer with a strong focus on UX / UI Design. I create digital solutions that are useful, simple, and user-centered.",
+    "p2": "I combine design, business, and technology to build clear, efficient, and lasting products. My approach starts with understanding users and translating their needs into intuitive experiences.",
+    "p3": "Currently pursuing an Engineering degree in Software Engineering & Databases at the École Nationale d'Informatique."
+  },
+  "projects": {
+    "heading": "Projects",
+    "subtitle": "A selection of my work across web, mobile, desktop, and design.",
+    "viewProject": "View project",
+    "viewCode": "Source code",
+    "all": "All",
+    "web": "Web",
+    "mobile": "Mobile",
+    "desktop": "Desktop",
+    "design": "Design",
+    "ai": "AI",
+    "other": "Other"
+  },
+  "experience": {
+    "heading": "Experience",
+    "subtitle": "My professional journey so far."
+  },
+  "skills": {
+    "heading": "Skills",
+    "subtitle": "Technologies and methodologies I work with.",
+    "design": "Design",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Tools"
+  },
+  "education": {
+    "heading": "Education",
+    "subtitle": "My academic background."
+  },
+  "contact": {
+    "heading": "Let's connect",
+    "subtitle": "Feel free to reach out through any of these channels.",
+    "email": "Email",
+    "phone": "Phone"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Designed & built by Alpha Jedidia R."
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  }
+}

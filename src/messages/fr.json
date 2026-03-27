@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "about": "À propos",
+    "projects": "Projets",
+    "experience": "Expérience",
+    "skills": "Compétences",
+    "education": "Formation",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "name": "Alpha Jedidia R.",
+    "title": "UX / UI Designer & Ingénieur Logiciel",
+    "subtitle": "Je conçois des solutions numériques utiles, simples et centrées utilisateur.",
+    "cta": "Voir mes projets",
+    "resume": "Télécharger CV"
+  },
+  "about": {
+    "heading": "À propos",
+    "p1": "Ingénieur Logiciel orienté UX / UI Design. Je conçois des solutions numériques utiles, simples et centrées utilisateur.",
+    "p2": "Je combine design, business et technique pour créer des produits clairs, efficaces et durables. Mon approche commence par la compréhension des utilisateurs et la traduction de leurs besoins en expériences intuitives.",
+    "p3": "Actuellement en cycle Ingénieur en Génie Logiciel et Base de Données à l'École Nationale d'Informatique."
+  },
+  "projects": {
+    "heading": "Projets",
+    "subtitle": "Une sélection de mes travaux en web, mobile, desktop et design.",
+    "viewProject": "Voir le projet",
+    "viewCode": "Code source",
+    "all": "Tous",
+    "web": "Web",
+    "mobile": "Mobile",
+    "desktop": "Desktop",
+    "design": "Design",
+    "ai": "IA",
+    "other": "Autre"
+  },
+  "experience": {
+    "heading": "Expérience",
+    "subtitle": "Mon parcours professionnel."
+  },
+  "skills": {
+    "heading": "Compétences",
+    "subtitle": "Technologies et méthodologies que j'utilise.",
+    "design": "Design",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Outils"
+  },
+  "education": {
+    "heading": "Formation",
+    "subtitle": "Mon parcours académique."
+  },
+  "contact": {
+    "heading": "Connectons-nous",
+    "subtitle": "N'hésitez pas à me contacter via ces canaux.",
+    "email": "Email",
+    "phone": "Téléphone"
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "madeWith": "Conçu et développé par Alpha Jedidia R."
+  },
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre"
+  }
+}

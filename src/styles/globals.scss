@@ -1,0 +1,131 @@
+@use 'variables' as *;
+
+// ─── CSS Custom Properties (Theme) ───
+:root,
+[data-theme='light'] {
+  --color-bg: #fafafa;
+  --color-bg-alt: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #666666;
+  --color-text-muted: #999999;
+  --color-accent: #e8a825;
+  --color-accent-hover: #d49a1f;
+  --color-accent-light: rgba(232, 168, 37, 0.1);
+  --color-border: #eaeaea;
+  --color-border-hover: #d0d0d0;
+  --color-shadow: rgba(0, 0, 0, 0.06);
+  --color-shadow-hover: rgba(0, 0, 0, 0.12);
+  --color-nav-bg: rgba(250, 250, 250, 0.85);
+  --color-tag-bg: #f3f3f3;
+  --color-tag-text: #555555;
+  --color-code-bg: #f5f5f5;
+}
+
+[data-theme='dark'] {
+  --color-bg: #0a0a0a;
+  --color-bg-alt: #111111;
+  --color-bg-card: #161616;
+  --color-text: #ededed;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #666666;
+  --color-accent: #e8a825;
+  --color-accent-hover: #f0b840;
+  --color-accent-light: rgba(232, 168, 37, 0.12);
+  --color-border: #262626;
+  --color-border-hover: #333333;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-shadow-hover: rgba(0, 0, 0, 0.5);
+  --color-nav-bg: rgba(10, 10, 10, 0.85);
+  --color-tag-bg: #1e1e1e;
+  --color-tag-text: #b0b0b0;
+  --color-code-bg: #1a1a1a;
+}
+
+// ─── Reset ───
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-body;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  transition: background-color $transition-theme, color $transition-theme;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+}
+
+// ─── Selection ───
+::selection {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+// ─── Scrollbar ───
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: $radius-full;
+
+  &:hover {
+    background: var(--color-text-muted);
+  }
+}
+
+// ─── Section heading ───
+.section-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: $space-sm;
+
+  @media (min-width: $bp-md) {
+    font-size: 2.5rem;
+  }
+}
+
+.section-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: $space-3xl;
+}

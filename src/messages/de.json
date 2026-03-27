@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "about": "Über mich",
+    "projects": "Projekte",
+    "experience": "Erfahrung",
+    "skills": "Fähigkeiten",
+    "education": "Ausbildung",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "greeting": "Hallo, ich bin",
+    "name": "Alpha Jedidia R.",
+    "title": "UX / UI Designer & Software-Ingenieur",
+    "subtitle": "Ich entwerfe digitale Lösungen, die nützlich, einfach und nutzerzentriert sind.",
+    "cta": "Meine Arbeit ansehen",
+    "resume": "Lebenslauf herunterladen"
+  },
+  "about": {
+    "heading": "Über mich",
+    "p1": "Software-Ingenieur mit Schwerpunkt UX / UI Design. Ich entwickle digitale Lösungen, die nützlich, einfach und nutzerzentriert sind.",
+    "p2": "Ich kombiniere Design, Business und Technologie, um klare, effiziente und nachhaltige Produkte zu schaffen. Mein Ansatz beginnt mit dem Verständnis der Nutzer und der Umsetzung ihrer Bedürfnisse in intuitive Erlebnisse.",
+    "p3": "Derzeit im Ingenieurstudiengang für Softwaretechnik und Datenbanken an der École Nationale d'Informatique."
+  },
+  "projects": {
+    "heading": "Projekte",
+    "subtitle": "Eine Auswahl meiner Arbeiten in Web, Mobile, Desktop und Design.",
+    "viewProject": "Projekt ansehen",
+    "viewCode": "Quellcode",
+    "all": "Alle",
+    "web": "Web",
+    "mobile": "Mobil",
+    "desktop": "Desktop",
+    "design": "Design",
+    "ai": "KI",
+    "other": "Sonstige"
+  },
+  "experience": {
+    "heading": "Erfahrung",
+    "subtitle": "Mein beruflicher Werdegang."
+  },
+  "skills": {
+    "heading": "Fähigkeiten",
+    "subtitle": "Technologien und Methoden, mit denen ich arbeite.",
+    "design": "Design",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Werkzeuge"
+  },
+  "education": {
+    "heading": "Ausbildung",
+    "subtitle": "Mein akademischer Hintergrund."
+  },
+  "contact": {
+    "heading": "Kontakt aufnehmen",
+    "subtitle": "Kontaktieren Sie mich gerne über diese Kanäle.",
+    "email": "E-Mail",
+    "phone": "Telefon"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "madeWith": "Entworfen und entwickelt von Alpha Jedidia R."
+  },
+  "theme": {
+    "light": "Hell",
+    "dark": "Dunkel"
+  }
+}
