@@ -9,7 +9,7 @@
   user-select: none;
 
   @include respond-to(md) {
-    padding: $space-5xl 0;
+    padding: $space-xl 0;
   }
 }
 
@@ -23,7 +23,7 @@
 .text {
   font-size: clamp(1.8rem, 4.5vw, 3.5rem);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
   color: var(--color-text-dim);
   flex-shrink: 0;
   transition: color $transition-theme;
