@@ -1,25 +1,30 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .marquee {
   overflow: hidden;
-  padding: $space-3xl 0;
+  padding: $space-4xl 0;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
   user-select: none;
+
+  @include respond-to(md) {
+    padding: $space-5xl 0;
+  }
 }
 
 .track {
   display: flex;
   white-space: nowrap;
   will-change: transform;
+  gap: $space-xl;
 }
 
 .text {
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   color: var(--color-text-dim);
-  padding-right: 0;
   flex-shrink: 0;
   transition: color $transition-theme;
 }
