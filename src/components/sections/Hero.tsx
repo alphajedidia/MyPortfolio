@@ -103,20 +103,12 @@ export default function Hero() {
 
             {/* Main clipped image */}
             <div className={styles.imageClip}>
-              {/* Replace src with your real photo */}
               <img
-                src="/images/profile.svg"
+                src="/images/Alpha Jedidia.jpg"
                 alt="Alpha Jedidia R."
                 className={styles.image}
               />
             </div>
-
-            {/* Floating accent dot */}
-            <motion.div
-              className={styles.floatingDot}
-              animate={{ y: [0, -12, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-            />
 
             {/* Experience badge */}
             <motion.div
