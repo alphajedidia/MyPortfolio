@@ -33,7 +33,7 @@ export default function About() {
 
   return (
     <>
-      <Marquee items={marqueeItems} speed={35} separator="\u00B7" />
+      <Marquee items={marqueeItems} speed={35} separator={'\u00B7'} />
       <section className={styles.about} id="about">
         <div className={styles.container} ref={ref}>
           <div className={styles.grid}>

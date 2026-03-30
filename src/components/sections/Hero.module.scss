@@ -298,10 +298,7 @@
   }
 }
 
-.scrollLine {
-  display: block;
-  width: 1px;
-  height: 48px;
-  background: var(--color-accent);
-  transform-origin: top;
+.scrollArrow {
+  color: var(--color-accent);
+  display: flex;
 }

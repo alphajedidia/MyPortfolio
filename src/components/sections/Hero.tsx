@@ -141,11 +141,16 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 3.5, duration: 0.8 }}
       >
-        <motion.span
-          className={styles.scrollLine}
-          animate={{ scaleY: [0, 1, 0] }}
+        <motion.div
+          className={styles.scrollArrow}
+          animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-        />
+        >
+          <svg width="16" height="40" viewBox="0 0 16 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <line x1="8" y1="0" x2="8" y2="34" />
+            <polyline points="2 28 8 34 14 28" />
+          </svg>
+        </motion.div>
       </motion.div>
     </section>
   );
