@@ -31,12 +31,6 @@ const fadeIn = {
   }),
 };
 
-const stats = [
-  { number: '35+', label: 'Projects' },
-  { number: '3+', label: 'Years Exp.' },
-  { number: '10+', label: 'Technologies' },
-];
-
 export default function Hero() {
   const t = useTranslations('hero');
 
@@ -97,24 +91,56 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <div className={styles.right}>
-          {stats.map((stat, i) => (
+        <motion.div
+          className={styles.right}
+          initial={{ opacity: 0, scale: 0.9, x: 40 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ delay: 2.4, duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          <div className={styles.imageWrapper}>
+            {/* Decorative border shape */}
+            <div className={styles.imageBorder} />
+
+            {/* Main clipped image */}
+            <div className={styles.imageClip}>
+              {/* Replace src with your real photo */}
+              <img
+                src="/images/profile.svg"
+                alt="Alpha Jedidia R."
+                className={styles.image}
+              />
+            </div>
+
+            {/* Floating accent dot */}
             <motion.div
-              key={stat.label}
-              className={styles.stat}
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                delay: 2.8 + i * 0.15,
-                duration: 0.7,
-                ease: [0.25, 0.1, 0.25, 1],
-              }}
+              className={styles.floatingDot}
+              animate={{ y: [0, -12, 0] }}
+              transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+            />
+
+            {/* Experience badge */}
+            <motion.div
+              className={styles.badge}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 3.2, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <span className={styles.statNumber}>{stat.number}</span>
-              <span className={styles.statLabel}>{stat.label}</span>
+              <span className={styles.badgeNumber}>3+</span>
+              <span className={styles.badgeLabel}>Years</span>
             </motion.div>
-          ))}
-        </div>
+
+            {/* Projects badge */}
+            <motion.div
+              className={`${styles.badge} ${styles.badgeBottom}`}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 3.4, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <span className={styles.badgeNumber}>35+</span>
+              <span className={styles.badgeLabel}>Projects</span>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
 
       <motion.div
