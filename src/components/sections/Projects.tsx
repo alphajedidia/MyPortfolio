@@ -8,7 +8,7 @@ import { projects, categories, type ProjectCategory } from '@/data/projects';
 import styles from './Projects.module.scss';
 
 const PAGE_SIZE = 5;
-const CARD_WIDTH = 440;
+const CARD_WIDTH = 360;
 const CARD_GAP = 32;
 const END_CARD_WIDTH = 260;
 
