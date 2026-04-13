@@ -84,7 +84,7 @@ export default function Hero() {
               </button>
             </MagneticButton>
             <MagneticButton>
-              <a href="/cv.pdf" download className={styles.secondary} data-cursor="Download">
+              <a href="/cv.pdf" download="Alpha_Jedidia_CV.pdf" className={styles.secondary} data-cursor="Download">
                 {t('resume')}
               </a>
             </MagneticButton>
