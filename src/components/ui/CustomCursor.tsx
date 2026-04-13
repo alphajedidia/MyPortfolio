@@ -7,11 +7,10 @@ import styles from './CustomCursor.module.scss';
 export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
-  const [label, setLabel] = useState('');
   const [isMobile, setIsMobile] = useState(true);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-  const springConfig = { damping: 30, stiffness: 400, mass: 0.5 };
+  const springConfig = { damping: 35, stiffness: 500, mass: 0.3 };
   const x = useSpring(cursorX, springConfig);
   const y = useSpring(cursorY, springConfig);
   const mounted = useRef(false);
@@ -31,11 +30,8 @@ export default function CustomCursor() {
 
     const handleOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const interactive = target.closest('a, button, [data-cursor]');
-      if (interactive) {
+      if (target.closest('a, button, [data-cursor]')) {
         setIsHovering(true);
-        const cursorLabel = interactive.getAttribute('data-cursor');
-        setLabel(cursorLabel || '');
       }
     };
 
@@ -43,7 +39,6 @@ export default function CustomCursor() {
       const target = e.target as HTMLElement;
       if (target.closest('a, button, [data-cursor]')) {
         setIsHovering(false);
-        setLabel('');
       }
     };
 
@@ -68,17 +63,19 @@ export default function CustomCursor() {
   if (isMobile) return null;
 
   return (
-    <>
-      <motion.div
-        className={`${styles.cursor} ${isHovering ? styles.hovering : ''} ${isHidden ? styles.hidden : ''} ${label ? styles.withLabel : ''}`}
-        style={{ x, y }}
+    <motion.div
+      className={`${styles.cursor} ${isHovering ? styles.hovering : ''} ${isHidden ? styles.hidden : ''}`}
+      style={{ x, y }}
+    >
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className={styles.arrow}
       >
-        {label && <span className={styles.label}>{label}</span>}
-      </motion.div>
-      <motion.div
-        className={`${styles.dot} ${isHidden ? styles.hidden : ''}`}
-        style={{ x: cursorX, y: cursorY }}
-      />
-    </>
+        <path d="M5.5 2l14 10.5-6.5 1.5-3.5 6z" />
+      </svg>
+    </motion.div>
   );
 }

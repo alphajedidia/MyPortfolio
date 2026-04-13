@@ -13,6 +13,7 @@ const stats = [
 ];
 
 const marqueeItems = [
+  '',
   'User-Centered Design',
   'Design Thinking',
   'Figma',
