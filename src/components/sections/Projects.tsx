@@ -8,8 +8,8 @@ import { projects, categories, type ProjectCategory } from '@/data/projects';
 import styles from './Projects.module.scss';
 
 const PAGE_SIZE = 5;
-const CARD_WIDTH = 440; // px, matches CSS
-const CARD_GAP = 32;   // matches $space-2xl
+const CARD_WIDTH = 440;
+const CARD_GAP = 32;
 const END_CARD_WIDTH = 260;
 
 export default function Projects() {
@@ -35,12 +35,11 @@ export default function Projects() {
   const hasMore = visibleCount < filtered.length;
   const totalCards = visible.length + (hasMore ? 1 : 0);
 
-  // Calculate scroll range from card count (no DOM measurement needed)
   const totalTrackWidth =
     visible.length * CARD_WIDTH +
     (hasMore ? END_CARD_WIDTH : 0) +
     (totalCards - 1) * CARD_GAP +
-    80; // padding
+    80;
 
   const [viewportWidth, setViewportWidth] = useState(1200);
 
@@ -53,8 +52,6 @@ export default function Projects() {
 
   const scrollRange = Math.max(0, totalTrackWidth - viewportWidth);
   const x = useTransform(scrollYProgress, [0, 1], [0, -scrollRange]);
-
-  // Section height proportional to how far we need to scroll
   const sectionHeight = Math.max(200, 120 + (scrollRange / viewportWidth) * 100);
 
   const handleShowMore = useCallback(() => {
@@ -90,7 +87,7 @@ export default function Projects() {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 }}
             >
-              Selected work
+              {t('subtitle')}
             </motion.h2>
           </div>
 
@@ -128,19 +125,13 @@ export default function Projects() {
                     <span className={styles.cardCategoryLabel}>
                       {t(project.category)}
                     </span>
+                    {project.year && (
+                      <span className={styles.cardYear}>{project.year}</span>
+                    )}
                   </div>
                   <div className={styles.cardOverlay}>
-                    {project.liveUrl && (
-                      <a href={project.liveUrl} className={styles.cardLink} target="_blank" rel="noopener noreferrer">
-                        {t('viewProject')}
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                          <line x1="7" y1="17" x2="17" y2="7" />
-                          <polyline points="7 7 17 7 17 17" />
-                        </svg>
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a href={project.githubUrl} className={styles.cardLink} target="_blank" rel="noopener noreferrer">
+                    {project.url && (
+                      <a href={project.url} className={styles.cardLink} target="_blank" rel="noopener noreferrer">
                         {t('viewCode')}
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                           <line x1="7" y1="17" x2="17" y2="7" />
@@ -152,8 +143,12 @@ export default function Projects() {
                 </div>
 
                 <div className={styles.cardBody}>
-                  <h3 className={styles.cardTitle}>{project.title}</h3>
-                  <p className={styles.cardDesc}>{project.description}</p>
+                  <h3 className={styles.cardTitle}>
+                    {t(`items.${project.id}.title`)}
+                  </h3>
+                  <p className={styles.cardDesc}>
+                    {t(`items.${project.id}.description`)}
+                  </p>
                   <div className={styles.cardTags}>
                     {project.tags.map((tag) => (
                       <span key={tag} className={styles.tag}>{tag}</span>
@@ -169,10 +164,10 @@ export default function Projects() {
                   +{filtered.length - visibleCount}
                 </span>
                 <p className={styles.endText}>
-                  more {activeFilter === 'all' ? 'projects' : activeFilter} to explore
+                  {t(activeFilter === 'all' ? 'heading' : activeFilter)}
                 </p>
                 <button className={styles.showMoreBtn} onClick={handleShowMore} data-cursor="Load">
-                  <span>Show more</span>
+                  <span>{t('showMore')}</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <line x1="5" y1="12" x2="19" y2="12" />

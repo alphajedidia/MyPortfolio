@@ -145,6 +145,14 @@
   color: var(--color-text-muted);
 }
 
+.cardYear {
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--color-text-dim);
+  letter-spacing: 0.05em;
+  margin-top: $space-xs;
+}
+
 .cardOverlay {
   position: absolute;
   inset: 0;

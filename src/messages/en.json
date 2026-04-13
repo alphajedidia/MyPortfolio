@@ -26,13 +26,103 @@
     "subtitle": "A selection of my work across web, mobile, desktop, and design.",
     "viewProject": "View project",
     "viewCode": "Source code",
+    "showMore": "Show more",
     "all": "All",
     "web": "Web",
     "mobile": "Mobile",
     "desktop": "Desktop",
     "design": "Design",
     "ai": "AI",
-    "other": "Other"
+    "items": {
+      "diaspora-platform": {
+        "title": "Diaspora Platform",
+        "description": "Intuitive platform for the Malagasy diaspora, focused on a smooth user experience and modern design, built with React and Django REST Framework."
+      },
+      "hotelle": {
+        "title": "Hot'elle",
+        "description": "Hotel room reservation system handling room availability, customer management, automated email notifications, and PDF receipt generation."
+      },
+      "inventory-management": {
+        "title": "Inventory Management",
+        "description": "Backend Web API for managing inventory and stock levels, with real-time updates, stock movement history, and low stock alerts."
+      },
+      "ultimatepay": {
+        "title": "UltimatePay",
+        "description": "Modern payment platform providing secure and seamless online payment APIs and a mobile application."
+      },
+      "sales-audit": {
+        "title": "Sales Audit System",
+        "description": "JavaFX desktop application using PostgreSQL triggers to supervise and audit product sales with full traceability."
+      },
+      "paperstorm": {
+        "title": "Paperstorm",
+        "description": "High-performance batch document generation service capable of processing 1000+ documents in parallel, with resilience, monitoring, and full observability."
+      },
+      "bible-sermon": {
+        "title": "Bible for Sermon",
+        "description": "Mobile app allowing offline download of multiple Bible versions in 7+ languages, with fast full-text search using FTS5."
+      },
+      "cashpointer": {
+        "title": "CashPointer",
+        "description": "Mobile application for cashpoint owners in Madagascar, designed with a deep user research phase to apply user-centered design principles."
+      },
+      "ultimatepay-logo": {
+        "title": "UltimatePay Logo",
+        "description": "Logo design and visual identity creation for the UltimatePay payment platform."
+      },
+      "backoffice-cashpointer": {
+        "title": "BackOffice CashPointer",
+        "description": "Admin dashboard for the CashPointer application, enabling tracking of all devices and subscription management."
+      },
+      "gsb-rms": {
+        "title": "GSB — RMS SaaS",
+        "description": "User-centered design of a Recruitment Management System SaaS, translating business needs into clear, actionable experiences in close collaboration with clients and technical teams."
+      },
+      "mvp-izolearn": {
+        "title": "MVP IzoLearn",
+        "description": "MVP design for a recruitment SaaS platform allowing candidates to build profiles and companies to find the best match for open positions."
+      },
+      "ai-test-tool": {
+        "title": "AI Technical Test Tool",
+        "description": "SaaS tool allowing companies to run internal technical assessments and invite candidates, with an AI that validates results and identifies the best candidates."
+      },
+      "ux-optimization": {
+        "title": "UX Optimization — Complex App",
+        "description": "UX redesign of a complex application with multiple nested menus, resulting in significantly improved user satisfaction."
+      },
+      "agri-toky": {
+        "title": "Agri-Toky",
+        "description": "Mobile app for Malagasy farmers, designed with Human-Centered Design to remain accessible even for users with limited reading ability."
+      },
+      "izolearn-v0": {
+        "title": "IzoLearn V0",
+        "description": "Involved from ideation to development of the IzoLearn e-learning platform as the lead designer."
+      },
+      "ounyah": {
+        "title": "Ounyah",
+        "description": "UI/UX design and architecture for an audiobook streaming mobile application."
+      },
+      "init-logo": {
+        "title": "inIT Logo",
+        "description": "Logo creation for the tech company inIT."
+      },
+      "qr-poster": {
+        "title": "QR Poster Campaign",
+        "description": "Design of advertising posters for a printing service, allowing users to access content via QR codes placed across the city."
+      },
+      "ariary-market": {
+        "title": "Ariary Market",
+        "description": "Mobile e-commerce app design focused on simplicity and ease of navigation."
+      },
+      "survey-redesign": {
+        "title": "Survey Redesign",
+        "description": "UX redesign of a daily long survey, resulting in significant time savings for end users after the redesign."
+      },
+      "online-print": {
+        "title": "Online Print Service",
+        "description": "Design of an online printing service with a focus on usability for all ages, from product selection to final order."
+      }
+    }
   },
   "experience": {
     "heading": "Experience",

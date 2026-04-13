@@ -26,13 +26,103 @@
     "subtitle": "Une sélection de mes travaux en web, mobile, desktop et design.",
     "viewProject": "Voir le projet",
     "viewCode": "Code source",
+    "showMore": "Voir plus",
     "all": "Tous",
     "web": "Web",
     "mobile": "Mobile",
     "desktop": "Desktop",
     "design": "Design",
     "ai": "IA",
-    "other": "Autre"
+    "items": {
+      "diaspora-platform": {
+        "title": "Diaspora Platform",
+        "description": "Plateforme intuitive pour la diaspora malgache, axée sur une expérience utilisateur fluide et un design moderne, développée avec React et Django REST Framework."
+      },
+      "hotelle": {
+        "title": "Hot'elle",
+        "description": "Système de réservation de chambres d'hôtel gérant la disponibilité, les informations clients, les notifications email automatiques et la génération de reçus PDF."
+      },
+      "inventory-management": {
+        "title": "Inventory Management",
+        "description": "API Web backend pour la gestion des stocks, avec mises à jour en temps réel, historique des mouvements et alertes de stock bas."
+      },
+      "ultimatepay": {
+        "title": "UltimatePay",
+        "description": "Plateforme de paiement moderne offrant des API et une application mobile pour des transactions en ligne sécurisées et fluides."
+      },
+      "sales-audit": {
+        "title": "Sales Audit System",
+        "description": "Application desktop JavaFX avec PostgreSQL pour superviser et auditer les ventes de produits via des triggers de base de données."
+      },
+      "paperstorm": {
+        "title": "Paperstorm",
+        "description": "Service de génération de documents en masse haute performance, capable de traiter 1000+ documents en parallèle avec résilience, monitoring et observabilité complète."
+      },
+      "bible-sermon": {
+        "title": "Bible for Sermon",
+        "description": "Application mobile permettant le téléchargement hors-ligne de plusieurs versions de la Bible en 7+ langues, avec recherche plein texte rapide via FTS5."
+      },
+      "cashpointer": {
+        "title": "CashPointer",
+        "description": "Application mobile pour les propriétaires de points de cash à Madagascar, conçue après une phase approfondie de recherche utilisateur centrée sur l'utilisateur."
+      },
+      "ultimatepay-logo": {
+        "title": "Logo UltimatePay",
+        "description": "Création du logo et de l'identité visuelle de la plateforme de paiement UltimatePay."
+      },
+      "backoffice-cashpointer": {
+        "title": "BackOffice CashPointer",
+        "description": "Tableau de bord administrateur pour l'application CashPointer, permettant le suivi des appareils et la gestion des abonnements."
+      },
+      "gsb-rms": {
+        "title": "GSB — RMS SaaS",
+        "description": "Conception centrée utilisateur d'un SaaS RMS (Recruitment Management System), traduisant les besoins métier en expériences claires en collaboration avec les clients et les équipes techniques."
+      },
+      "mvp-izolearn": {
+        "title": "MVP IzoLearn",
+        "description": "Conception du MVP d'une plateforme SaaS de recrutement permettant aux candidats de créer un profil et aux entreprises de trouver le meilleur candidat."
+      },
+      "ai-test-tool": {
+        "title": "Outil de Test Technique IA",
+        "description": "Outil SaaS permettant aux entreprises de réaliser leurs tests techniques en interne et d'inviter des candidats, avec une IA qui valide les résultats."
+      },
+      "ux-optimization": {
+        "title": "Optimisation UX — App Complexe",
+        "description": "Refonte UX d'une application complexe à menus imbriqués, ayant abouti à une nette amélioration de la satisfaction des utilisateurs."
+      },
+      "agri-toky": {
+        "title": "Agri-Toky",
+        "description": "Application mobile pour les agriculteurs malgaches, conçue avec une approche centrée sur l'humain pour rester accessible même aux utilisateurs ayant des difficultés de lecture."
+      },
+      "izolearn-v0": {
+        "title": "IzoLearn V0",
+        "description": "Participation de l'idéation au développement de la plateforme e-learning IzoLearn en tant que designer principal."
+      },
+      "ounyah": {
+        "title": "Ounyah",
+        "description": "Conception UI/UX et architecture d'une application mobile de streaming de livres audio."
+      },
+      "init-logo": {
+        "title": "Logo inIT",
+        "description": "Création du logo pour la société tech inIT."
+      },
+      "qr-poster": {
+        "title": "Campagne Affiches QR",
+        "description": "Conception d'affiches publicitaires pour un service d'impression, permettant aux passants d'accéder au contenu via QR codes en ville."
+      },
+      "ariary-market": {
+        "title": "Ariary Market",
+        "description": "Design d'une application mobile e-commerce axée sur la simplicité de navigation et l'utilité."
+      },
+      "survey-redesign": {
+        "title": "Refonte Sondage Quotidien",
+        "description": "Refonte UX d'un long sondage quotidien, ayant permis aux utilisateurs finaux de gagner significativement du temps."
+      },
+      "online-print": {
+        "title": "Service d'Impression en Ligne",
+        "description": "Conception d'un service d'impression en ligne centré sur la facilité d'utilisation pour tous les âges, de la sélection du produit à la commande finale."
+      }
+    }
   },
   "experience": {
     "heading": "Expérience",

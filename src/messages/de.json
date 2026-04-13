@@ -26,13 +26,103 @@
     "subtitle": "Eine Auswahl meiner Arbeiten in Web, Mobile, Desktop und Design.",
     "viewProject": "Projekt ansehen",
     "viewCode": "Quellcode",
+    "showMore": "Mehr anzeigen",
     "all": "Alle",
     "web": "Web",
     "mobile": "Mobil",
     "desktop": "Desktop",
     "design": "Design",
     "ai": "KI",
-    "other": "Sonstige"
+    "items": {
+      "diaspora-platform": {
+        "title": "Diaspora Platform",
+        "description": "Intuitive Plattform für die madagassische Diaspora mit moderner Benutzeroberfläche, entwickelt mit React und Django REST Framework."
+      },
+      "hotelle": {
+        "title": "Hot'elle",
+        "description": "Hotelzimmer-Reservierungssystem mit Verfügbarkeitsverwaltung, automatischen E-Mail-Benachrichtigungen und PDF-Quittungsgenerierung."
+      },
+      "inventory-management": {
+        "title": "Inventory Management",
+        "description": "Backend-Web-API zur Lagerverwaltung mit Echtzeit-Updates, Bewegungshistorie und Warnungen bei niedrigem Lagerbestand."
+      },
+      "ultimatepay": {
+        "title": "UltimatePay",
+        "description": "Moderne Zahlungsplattform mit sicheren APIs und einer mobilen Anwendung für nahtlose Online-Transaktionen."
+      },
+      "sales-audit": {
+        "title": "Sales Audit System",
+        "description": "JavaFX-Desktop-Anwendung mit PostgreSQL-Datenbank-Triggern zur Überwachung und Auditierung von Produktverkäufen."
+      },
+      "paperstorm": {
+        "title": "Paperstorm",
+        "description": "Hochleistungs-Batch-Dokumentengenerierungsdienst für 1000+ parallele Dokumente mit Ausfallsicherheit, Monitoring und vollständiger Observierbarkeit."
+      },
+      "bible-sermon": {
+        "title": "Bible for Sermon",
+        "description": "Mobile App zum Offline-Download mehrerer Bibelversionen in 7+ Sprachen mit schneller Volltextsuche über FTS5."
+      },
+      "cashpointer": {
+        "title": "CashPointer",
+        "description": "Mobile Anwendung für Bargeldpunkt-Betreiber in Madagaskar, entwickelt nach einer intensiven nutzerzentrierten Forschungsphase."
+      },
+      "ultimatepay-logo": {
+        "title": "UltimatePay Logo",
+        "description": "Logo-Design und visuelle Identität für die UltimatePay-Zahlungsplattform."
+      },
+      "backoffice-cashpointer": {
+        "title": "BackOffice CashPointer",
+        "description": "Admin-Dashboard für die CashPointer-App zur Geräteverfolgung und Abonnementverwaltung."
+      },
+      "gsb-rms": {
+        "title": "GSB — RMS SaaS",
+        "description": "Nutzerzentriertes Design eines Recruitment-Management-System-SaaS, das Geschäftsanforderungen in klare Nutzererlebnisse übersetzt."
+      },
+      "mvp-izolearn": {
+        "title": "MVP IzoLearn",
+        "description": "MVP-Design einer Recruiting-SaaS-Plattform, auf der Kandidaten Profile anlegen und Unternehmen die besten Bewerber finden können."
+      },
+      "ai-test-tool": {
+        "title": "KI-Technischer Testassistent",
+        "description": "SaaS-Tool für interne technische Tests mit KI-Auswertung, das Kandidaten einlädt und die besten automatisch identifiziert."
+      },
+      "ux-optimization": {
+        "title": "UX-Optimierung — Komplexe App",
+        "description": "UX-Redesign einer komplexen Anwendung mit verschachtelten Menüs, das zu deutlich gesteigerter Nutzerzufriedenheit führte."
+      },
+      "agri-toky": {
+        "title": "Agri-Toky",
+        "description": "Mobile App für madagassische Landwirte, menschenzentriert gestaltet für maximale Zugänglichkeit, auch für eingeschränkt lesende Nutzer."
+      },
+      "izolearn-v0": {
+        "title": "IzoLearn V0",
+        "description": "Beteiligung von der Ideation bis zur Entwicklung der IzoLearn E-Learning-Plattform als leitender Designer."
+      },
+      "ounyah": {
+        "title": "Ounyah",
+        "description": "UI/UX-Design und Architektur einer mobilen Hörbuch-Streaming-Anwendung."
+      },
+      "init-logo": {
+        "title": "inIT Logo",
+        "description": "Logo-Erstellung für das Technologieunternehmen inIT."
+      },
+      "qr-poster": {
+        "title": "QR-Plakatkampagne",
+        "description": "Gestaltung von Werbeplakaten für einen Druckservice, über die Passanten per QR-Code im Stadtbild auf Inhalte zugreifen können."
+      },
+      "ariary-market": {
+        "title": "Ariary Market",
+        "description": "Design einer mobilen E-Commerce-App mit Fokus auf einfache Navigation und praktischen Nutzen."
+      },
+      "survey-redesign": {
+        "title": "Tägliche Umfrage — Redesign",
+        "description": "UX-Neugestaltung einer langen täglichen Umfrage, die den Endnutzern nach dem Redesign deutlich Zeit einspart."
+      },
+      "online-print": {
+        "title": "Online-Druckservice",
+        "description": "Design eines Online-Druckservices mit Fokus auf Benutzerfreundlichkeit für alle Altersgruppen, von der Produktauswahl bis zur Bestellung."
+      }
+    }
   },
   "experience": {
     "heading": "Erfahrung",
